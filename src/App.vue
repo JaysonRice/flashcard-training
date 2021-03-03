@@ -1,7 +1,5 @@
 <template>
   <div id="app">
-    <h1>Star Wars Trivia</h1>
-
     <flashcard-list />
   </div>
 </template>
