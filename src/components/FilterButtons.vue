@@ -1,20 +1,57 @@
 <template>
   <div>
-    <button @click="handleClick('easy')">Easy</button>
-    <button @click="handleClick('medium')">Medium</button>
-    <button @click="handleClick('hard')">Hard</button>
-    <button @click="handleClick('all')">All</button>
+    <button
+      :class="{ chosen: chosenDifficulty === 'easy' }"
+      @click="handleClick('easy')"
+    >
+      Easy
+    </button>
+    <button
+      :class="{ chosen: chosenDifficulty === 'medium' }"
+      @click="handleClick('medium')"
+    >
+      Medium
+    </button>
+    <button
+      :class="{ chosen: chosenDifficulty === 'hard' }"
+      @click="handleClick('hard')"
+    >
+      Hard
+    </button>
+    <button
+      :class="{ chosen: chosenDifficulty === 'all' }"
+      @click="handleClick('all')"
+    >
+      All
+    </button>
   </div>
 </template>
 
 <script>
 export default {
+  data() {
+    return {
+      chosenDifficulty: "all",
+    };
+  },
   methods: {
     handleClick(selected) {
+      this.chosenDifficulty = selected;
       this.$emit("difficulty", selected);
     },
   },
 };
 </script>
 
-<style></style>
+<style scoped>
+button {
+  padding: 0.5em;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  border: gray solid 2px;
+}
+
+button.chosen {
+  background-color: lightgoldenrodyellow;
+}
+</style>

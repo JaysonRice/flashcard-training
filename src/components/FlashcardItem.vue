@@ -1,17 +1,17 @@
 <template>
   <section @click="handleClick">
-    <p>{{ trivia.question }}</p>
-    <p v-if="trivia.answerShown">{{ trivia.answer }}</p>
+    <p>{{ card.question }}</p>
+    <p v-if="card.answerShown">{{ card.answer }}</p>
   </section>
 </template>
 
 <script>
 export default {
-  props: ["trivia"],
+  props: ["card"],
 
   methods: {
     handleClick() {
-      this.$emit("answer-shown", this.trivia);
+      this.$emit("answer-shown", this.card);
     },
   },
 };
@@ -20,5 +20,8 @@ export default {
 <style scoped>
 section {
   height: 100%;
+}
+section:hover {
+  cursor: pointer;
 }
 </style>
