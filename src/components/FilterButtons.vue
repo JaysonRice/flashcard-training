@@ -48,10 +48,18 @@ button {
   padding: 0.5em;
   margin-left: 0.5rem;
   margin-right: 0.5rem;
-  border: gray solid 2px;
+  border: #23415f solid 2px;
+  color: #23415f;
+  background-color: whitesmoke;
+  width: 5em;
+  border-radius: 0.5em;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 button.chosen {
-  background-color: lightgoldenrodyellow;
+  background-color: palegoldenrod;
 }
 </style>

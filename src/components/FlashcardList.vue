@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1>Star Wars Trivia</h1>
-    <h3 class="hide-button" @click="handleHideAll">Hide All Answers</h3>
-    <filter-buttons @difficulty="handleDifficultyFilter" />
+    <div class="triviaControls">
+      <filter-buttons @difficulty="handleDifficultyFilter" />
+      <h3 class="hide-button" @click="handleHideAll">Hide All Answers</h3>
+    </div>
     <div class="flashcardContainer">
       <div class="flashcardItem" v-for="card in displayedTrivia" :key="card.id">
         <flashcard-item :card="card" @answer-shown="handleAnswerStatus" />
@@ -52,20 +54,28 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css2?family=Poller+One&display=swap");
+h1 {
+  font-family: "Poller One", cursive;
+  font-size: 4vw;
+  margin-bottom: 0;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: #23415f;
+}
 .flashcardContainer {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
 }
-.flashcardItem {
-  border: 3px solid palegoldenrod;
-  margin-top: 1em;
-  width: 10em;
-  height: 10em;
-  background: lightgoldenrodyellow;
+.triviaControls {
+  display: flex;
+  width: 50%;
+  margin: 0 auto;
+  justify-content: space-evenly;
+  align-items: center;
 }
 .hide-button:hover {
   cursor: pointer;
-  color: navy;
+  color: palegoldenrod;
 }
 </style>
